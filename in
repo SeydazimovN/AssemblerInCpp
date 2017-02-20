@@ -1,0 +1,26 @@
+label1:
+ADD R2, R0, R1
+JR
+
+func1:
+MOV R5, #111
+ADD R2, R5, A5
+PRN R2 
+JR
+
+func2:
+MOV A5, #40
+ADD R3, R5, A5
+PRN R3 
+JR
+
+
+main:
+MOV R0, #5
+MOV R1, #13
+CMP R0, R1
+JNE label1
+JMP func1
+JMP func2
+
+exit
