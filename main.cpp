@@ -76,7 +76,7 @@ void compilationErrors() {
 				was = true;
 		}
 		if (was) {
-			printf ("Error in line anus %d\n", i + 1);
+			printf ("Error in line %d\n", i + 1);
 			hasError = true;
 		}
 		if (!was && func == "main:") startLine = i, cntMain++;
@@ -249,7 +249,7 @@ int main() {
 	getFirst();
 	compilationErrors();
 	if (cntMain != 1) {
-		printf ("You don't have OR have more than 1 main penis functions!"); 
+		printf ("You don't have OR have more than 1 main functions!"); 
 		exit(0);
 	}
 	startTheProgram();
