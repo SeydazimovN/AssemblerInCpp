@@ -1,0 +1,10 @@
+
+
+fibonacci:
+
+
+main:
+ADD R1,#5,#6
+ADD A1,R1,#20
+
+exit
