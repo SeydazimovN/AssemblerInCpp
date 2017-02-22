@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int maxN = 444;
+const int maxN = 4444;
 string data[maxN];
 int dataL;
 int currentLine;
