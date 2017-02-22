@@ -64,8 +64,7 @@ void compilationErrors() {
 				was = true;
 			func += data[i][f];
 		}	
-		while (func.size() > 0 && func[func.size() - 1] == ' ') 
-			func.erase(func.size() - 1);
+		func = delSpaces(func);
 		int cnt = 0;
 		len = func.size();
 		for (int f = 0; f < len; ++f) {
