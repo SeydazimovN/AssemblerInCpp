@@ -130,6 +130,7 @@ void parseLine(int x) {
 int getID(string x) {
 	if (x[0] == '#') return -1;
 	int res = 0;
+	// what if x.size() > 10
 	for (int i = 1; i < (int) x.size(); ++i)
 		res = res * 10 + (x[i] - '0');
 	return res + ((x[0] == 'R') ? 256 : 0);
