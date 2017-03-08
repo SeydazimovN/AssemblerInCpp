@@ -1,0 +1,305 @@
+Program has started!
+in line 19
+in line 20
+in line 21
+in line 22
+in line 2
+in line 3
+in line 23
+in line 6
+in line 7
+in line 8
+PRN -> 111
+in line 9
+in line 24
+in line 12
+in line 13
+in line 14
+PRN -> 111
+in line 15
+in line 25
+in line 26
+Registers
+5
+13
+111
+111
+0
+111
+0
+0
+Cache
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 5, value = 40
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+address = 0, value = 0
+Memory
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
