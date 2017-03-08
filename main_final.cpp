@@ -98,6 +98,36 @@ void wrong(int x) {
 string T[4];
 int mem[256], reg[8];
 
+int cache_address[16], cache_val[16];
+void init() {
+	for (int i = 0; i < 16; ++i) cache_address[i] = -1;
+}
+
+void setMEM(int x, int val) {
+	int cache_pos = x % 16;
+	if (cache_address[cache_pos] == -1) 
+		cache_address[cache_pos] = x;
+	if (cache_address[cache_pos] != x) {
+		int place = cache_address[cache_pos];
+		mem[place] = cache_val[cache_pos];
+		cache_address[cache_pos] = x;
+	}
+	cache_val[cache_pos] = val;
+}
+
+int getData(int x) {
+	int cache_pos = x % 16;
+	if (cache_address[cache_pos] == -1)
+		cache_address[cache_pos] = x;
+	if (cache_address[cache_pos] != x) {
+		int place = cache_address[cache_pos];
+		mem[place] = cache_val[cache_pos];
+		cache_address[cache_pos] = x;
+		cache_val[cache_pos] = mem[x];
+	}
+	return cache_val[cache_pos];
+}
+
 bool bad(string v) {
 	if (v.size() < 2) return true;
 	if (v[0] == 'R' || v[0] == 'A' || v[0] == '#') {
@@ -141,7 +171,7 @@ int getNum(string x) {
 		res = res * 10 + (x[i] - '0');
 	if (x[0] == '#') return res;
 	if (x[0] == 'R') return reg[res];
-	if (x[0] == 'A') return mem[res];
+	if (x[0] == 'A') return getData(res);
 }
 
 int memID, num1, num2;
@@ -159,7 +189,7 @@ void ADD(int x) {
 	if (lenAct != 2) wrong(x);
 	getIDandNUM(x, lenAct);
 	int res = num1 + num2;
-	(memID > 255) ? reg[memID - 256] = res: mem[memID] = res;
+	if (memID > 255) reg[memID - 256] = res; else setMEM(memID, res);
 }
 
 void SUB(int x) {
@@ -167,7 +197,7 @@ void SUB(int x) {
 	if (lenAct != 2) wrong(x);
 	getIDandNUM(x, lenAct);
 	int res = num1 - num2;
-	(memID > 255) ? reg[memID - 256] = res: mem[memID] = res;
+	if (memID > 255) reg[memID - 256] = res; else setMEM(memID, res);
 }
 
 void MUL(int x) {
@@ -175,37 +205,7 @@ void MUL(int x) {
 	if (lenAct != 2) wrong(x);
 	getIDandNUM(x, lenAct);
 	int res = num1 * num2;
-	(memID > 255) ? reg[memID - 256] = res: mem[memID] = res;
-}
-
-int cache_address[16], cache_val[16];
-void init() {
-	for (int i = 0; i < 16; ++i) cache_address[i] = -1;
-}
-
-void setMEM(int x, int val) {
-	int cache_pos = x % 16;
-	if (cache_address[cache_pos] == -1) 
-		cache_address[cache_pos] = x;
-	if (cache_address[cache_pos] != x) {
-		int place = cache_address[cache_pos];
-		mem[place] = cache_val[cache_pos];
-		cache_address[cache_pos] = x;
-	}
-	cache_val[cache_pos] = val;
-}
-
-int getData(int x) {
-	int cache_pos = x % 16;
-	if (cache_address[cache_pos] == -1)
-		cache_address[cache_pos] = x;
-	if (cache_address[cache_pos] != x) {
-		int place = cache_address[cache_pos];
-		mem[place] = cache_val[cache_pos];
-		cache_address[cache_pos] = x;
-		cache_val[cache_pos] = mem[x];
-	}
-	return cache_val[cache_pos];
+	if (memID > 255) reg[memID - 256] = res; else setMEM(memID, res);
 }
 
 void DIV(int x) {
@@ -293,8 +293,11 @@ void printAll() {
 		printf ("address = %d, value = %d\n", cache_address[i], cache_val[i]);
 
 	printf ("Memory\n");
-	for (int i = 0; i < 256; ++i) 
-		printf ("%d\n", mem[i]);
+	for (int i = 0; i < 256; ++i) { 
+		if (cache_address[i % 16] == i)
+			printf ("%d\n", cache_val[i % 16]);
+		else printf ("%d\n", mem[i]);
+	}
 	printf ("\n");
 }
 
